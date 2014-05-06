@@ -4,6 +4,10 @@ title: "oauth2 provider"
 description: ""
 category: 
 tags: [Ruby]
+image:
+  feature: abstract-10.jpg
+comments: true
+share: true  
 ---
 
 ### 介绍
@@ -78,21 +82,25 @@ OAuth（开放授权）是一个开放标准，允许用户让第三方应用访
   
 
 - 例子：
- 	
-    http://server/oauth/token?client_id&client_secret&user_name&user_password 
 
-    method: post
+{% highlight ruby %}
+http://server/oauth/token?client_id&client_secret&user_name&user_password 
+
+method: post
+{% endhighlight %}
  
 
 - 返回参数：
   
-    { 		
-    "access_token":"de6780bc506a0446309bd9362820ba8aed28aa506c71eedbe1c5c4f9dd350e54",
-    "token_type": "bearer", 
-    "expires_in": 7200,
-    "refresh_token":"8257e65c97202ed1726cf9571600918f3bffb2544b26e00a61df9897668c33a1"
-    }
-	
+{% highlight ruby %}
+{ 		
+"access_token":"de6780bc506a0446309bd9362820ba8aed28aa506c71eedbe1c5c4f9dd350e54",
+"token_type": "bearer", 
+"expires_in": 7200,
+"refresh_token":"8257e65c97202ed1726cf9571600918f3bffb2544b26e00a61df9897668c33a1"
+}
+{% endhighlight %}
+
 access_token不再长期有效。在授权获取access_token时会一并返回其有效期，也就是返回值中的expires_in参数。
 	
 在access_token使用过程中，如果服务器返回错误：“access_token_has_expired ”，此时，说明access_token已经过期，就需要发送refresh_token的方式来换取新的access_token和refresh_token。
@@ -109,17 +117,22 @@ access_token不再长期有效。在授权获取access_token时会一并返回�
  
 - 例子
 
+{% highlight ruby %}
     https://server/auth2/token?client_id=0b5405e19c58e4cc21fc11a4d50aae64&client_secret=edfc4e395ef93375&redirect_uri=https://www.example.com/back&grant_type=refresh_token&refresh_token=5d633d136b6d56a41829b73a424803ec
     
     method: post
+{% endhighlight %}
+
 	
 - 返回参数
 
+{% highlight ruby %}
     {
     "access_token":"0e63c03dfb66c4172b2b40b9f2344c45",
     "expires_in":3920,
     "refresh_token":"84406d40cc58e0ae8cc147c2650aa20a",
     }
+{% endhighlight %}
 
 **Rails gem**:
 
