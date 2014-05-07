@@ -58,7 +58,7 @@ sass:
   style: compressed
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /:categories/:year/:month/:day/:title/
+permalink:   /:categories/:title/
 
 # Amount of post to show on home page
 paginate: 5
