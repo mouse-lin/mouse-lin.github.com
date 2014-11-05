@@ -5,23 +5,30 @@ modified: 2014-05-06 10:21:46 +0800
 tags: [html]
 image:
   feature: abstract-10.jpg
-  credit: 
-  creditlink: 
 comments: true
 share: true
 ---
 
-* 代码
-	
-	其中要注意就是对于android手机客户端，参数即使为空都必须带入，不然客户端分享会出不来
+现在微信越来越火了，很多HTML5 Page直接嵌入到微信的WebView里面打开，
+都会涉及到这个页面被分享出去时，标题、图片、链接、介绍等设置。
+
+微信分享比较主要有两种：
+
+* 好友圈
+* 好友
+
+首先，我们先在页面里面用Javascript定义我们要被分享参数：
+{% highlight javascript %}
+var imgUrl = '图片url';
+var lineLink = '分享后，点击跳转链接';
+var descContent = "介绍";
+var shareTitle = '标题';
+var appid = 'wxc9937e3a66af6dc8'; //appid，也可以不带，带了的话底下会有对应认证应用图标
+{% endhighlight %}
+
+然后就是定义三个不同分享方法：
 
 {% highlight javascript %}
-var imgUrl = 'http://qqfood.tc.qq.com/meishio/16/4585bf7c-be04-420f-ac8a-2dba61a7561f/0';
-var lineLink = 'http://life.qq.com/weixin/r/lottery/13826036970196242008#wechat_redirect';
-var descContent = "万达狂欢节, 夺宝幸运星大抽奖活动开始啦！";
-var shareTitle = '万达狂欢节';
-var appid = 'wxc9937e3a66af6dc8';
-
 function shareFriend() {
     WeixinJSBridge.invoke('sendAppMessage',{
                             "appid": appid,
@@ -55,7 +62,13 @@ function shareWeibo() {
                             _report('weibo', res.err_msg);
                             });
 }
-// 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+{% endhighlight %}
+
+> 这里要注意是，android客户端，参数即使为空都必须带入，不然客户端会分享出不来
+
+当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件：
+
+{% highlight javascript %}
 document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
 
         // 发送给好友

@@ -5,8 +5,6 @@ modified: 2014-10-31 14:56:37 +0800
 tags: [html5]
 image:
   feature: abstract-3.jpg
-  credit:
-  creditlink:
 comments: true
 share: true
 ---
