@@ -76,6 +76,7 @@ GEM
     redcarpet (3.2.2)
     safe_yaml (1.0.4)
     sass (3.4.5)
+    stringex (2.5.2)
     timers (4.0.1)
       hitimes
     titlecase (0.1.1)
@@ -92,6 +93,7 @@ DEPENDENCIES
   jekyll-sitemap
   octopress (~> 3.0.0.rc.12)
   sass (= 3.4.5)
+  stringex
 
 BUNDLED WITH
    1.10.3
