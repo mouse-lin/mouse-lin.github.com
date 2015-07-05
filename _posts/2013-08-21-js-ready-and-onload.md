@@ -3,7 +3,7 @@ layout: post
 title: "JS ready and onload"
 description: ""
 category: JS
-tags: [JS]
+tags: [JavaScript]
 ---
 #### onload与DOMContentLoaded区别
 
