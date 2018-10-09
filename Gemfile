@@ -1,5 +1,4 @@
-source 'https://rubygems.org'
-#source 'http://ruby.taobao.org'
+source 'https://gems.ruby-china.com'
 
 gem 'jekyll'
 gem 'coderay'
