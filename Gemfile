@@ -9,4 +9,4 @@ gem "stringex"
 gem 'pygments.rb'
 gem "jekyll-gist"
 gem "jekyll-paginate"
-gem 'yajl-ruby', '~> 1.3.1'
+gem 'yajl-ruby', '~> 1.4.2'
